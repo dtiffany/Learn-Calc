@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset = "UTF-8" />
+    <title>CalcQuest - Page 7</title>
+	<link rel="stylesheet" href="../calcPage.css">
+</head>
+
+<body>
+    <h1>Concept Introduction</h1>
+    <h3>Chapter 0 - Page 7</h3>
+    <hr><br>
+
+    <h2>The slope is <i>different</i> everywhere you look</h2>
+    <h2>So in order to find a slope on this graph, we pick a single point</h2>
+    <br>
+    <h2>Let's look at (3,6)</h2>
+    <img src="../Pics/pg7/pic2.png">
+    <br><br>
+    <h2>What would the slope be at this specific point?</h2>
+    <h3>If you were to draw a line representing the slope, what would it look like?</h3>
+    <h4>*Press the button below to see*</h4>
+    <button type="button" id="TABIpicpg7" onclick="TABIpic()">Think About It</button>
+
+    <div style="display: flex; justify-content: center;">
+        <img id="hiddenPic" src="../Pics/pg7/pic1.png" style="display: none;">
+    </div>
+    <br>
+    <h2>What is the slope at the point (3,6)? <input id="q1"> <span id="check1"></span></h2>
+    <h3><i>*Hint: Use the red line, which represents the slope at that point*</i></h3>
+    <button type="button" id="submit" onclick="oneSub(4, true)">Submit</button>
+
+    
+
+
+    <!--Back Button and Next Button  -  Next appears after trigger-->
+    <button id="backButton" style="color: red; position:fixed; top:10px; left:10px;" onclick="back()">Back</button>
+    <button id="nextButton" style="color: red; display:none; position:fixed; top:10px; right:10px;" onclick="next()">Next</button>
+
+
+    <script src="../calcPage.js"></script>
+
+</body>
