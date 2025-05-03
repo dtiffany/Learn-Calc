@@ -1,46 +1,129 @@
-function start() { // Just for home page
-    window.location.href = "pageList/page1.html";
+console.log("calcPage.js loaded");
+window.debugNav = {
+    getCurrentPage: getCurrentPageNumber,
+    testNavigation: navigateToPage,
+    goHome: goHome
+};
+
+const isGitHubPages = window.location.host.includes('github.io');
+const repoName = 'Learn-Calc'; 
+const basePath = isGitHubPages ? `/${repoName}/` : '/';
+
+// Unified navigation function
+// Universal navigation function
+function navigateToPage(pageNumber) {
+    // Try multiple path patterns
+    const paths = [
+        `PageList/page${pageNumber}.html`,  // GitHub Pages structure
+        `page${pageNumber}.html`,           // Flat structure fallback
+        `../PageList/page${pageNumber}.html` // If navigating from subfolder
+    ];
+
+    // Try each path sequentially
+    function tryPath(index) {
+        if (index >= paths.length) {
+            alert(`Page ${pageNumber} not found. Tried:\n${paths.join('\n')}`);
+            return;
+        }
+
+        window.location.href = paths[index];
+        
+        // Fallback check
+        setTimeout(() => {
+            if (!window.location.href.endsWith(`page${pageNumber}.html`)) {
+                tryPath(index + 1);
+            }
+        }, 100);
+    }
+
+    tryPath(0);
 }
 
-function home() { // Takes user to Home Page
-    window.location.href = "../homePage.html"
+function initPageNavigation() {
+    // Page navigation buttons (1-10)
+    document.querySelectorAll('[data-page]').forEach(button => {
+        button.addEventListener('click', (e) => {
+            const pageNumber = e.target.getAttribute('data-page');
+            navigateToPage(pageNumber);
+        });
+    });
+
+    // Home button
+    document.querySelectorAll('[data-home]').forEach(button => {
+        button.addEventListener('click', goHome);
+    });
+
+    // Next/Previous buttons
+    document.querySelectorAll('[data-next]').forEach(button => {
+        button.addEventListener('click', () => {
+            const currentPage = getCurrentPageNumber();
+            navigateToPage(currentPage + 1);
+        });
+    });
+
+    document.querySelectorAll('[data-back]').forEach(button => {
+        button.addEventListener('click', () => {
+            const currentPage = getCurrentPageNumber();
+            navigateToPage(currentPage - 1);
+        });
+    });
 }
 
-function next() { // Go to the next page
-    
-    let pgN = getPageCount();
-
-    pgN += 1;
-
-    let imgPath = "page" + pgN + ".html";  
-
-    //console.log("Navigating to: " + imgPath);  // Log the path to the console for debugging
-
-    window.location.href = imgPath;
-
-
+  // Update your button handlers
+function handlePageClick(event) {
+    const pageNumber = event.target.dataset.page;
+    if (pageNumber) navigateToPage(pageNumber);
+}
+  
+function start() {
+    navigateToPage(1);
 }
 
-function back() { // Go to previous page
-    let pgN = getPageCount();
+function goHome() {
+    const homePaths = [
+        'index.html',
+        '../index.html',
+        '/Learn-Calc/index.html'
+    ];
 
-    pgN -= 1;
+    function tryHomePath(index) {
+        if (index >= homePaths.length) {
+            window.location.href = '/';  // Final fallback
+            return;
+        }
 
-    let imgPath = "page" + pgN + ".html";  
+        window.location.href = homePaths[index];
+        
+        setTimeout(() => {
+            if (!window.location.href.endsWith('index.html')) {
+                tryHomePath(index + 1);
+            }
+        }, 100);
+    }
 
-    //console.log("Navigating to: " + imgPath);  // Log the path to the console for debugging
-
-    window.location.href = imgPath;
+    tryHomePath(0);
 }
 
-function getPageCount() { // Used to retrieve the page #
-
-    let pageName = window.location.pathname.split("/").pop(); // returns page#.html
-
-    let pgCount = Number(pageName.match(/\d+/)[0]); //Extracts the #
-
-    return pgCount
+function goNextPage() {
+    navigateToPage(getCurrentPageNumber() + 1);
 }
+
+
+
+function goBackPage() {
+    const currentPage = getCurrentPageNumber();
+    if (currentPage > 1) navigateToPage(currentPage - 1);
+    else goHome();
+}
+
+// Helper function to get current page number
+function getCurrentPageNumber() {
+    const currentPath = window.location.pathname;
+    const match = currentPath.match(/page(\d+)\.html/);
+    return match ? parseInt(match[1]) : 1;
+}
+
+document.addEventListener('DOMContentLoaded', initPageNavigation);
 
 function TABI() { //Think ABout It, reveal "Next" button
     setTimeout(function() {
@@ -154,57 +237,80 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
     }
 }
 
-let page1 = { // Willy Walk Function
-    distance: 1500, // Size of blue line in pixels
-    newDis: "",
-    count: 0,
-    disCount: 100,
-    disDisplay: 100, // Number the user sees representing distance, rounded to 10 decimal points
-    restartCount: 0,
+(function() {       // #1
+    // Your page1 object - now scoped to this function
+    const page1 = {
+        distance: 1500,
+        newDis: "",
+        count: 0,
+        disCount: 100,
+        disDisplay: 100,
+        restartCount: 0,
 
-    willyWalk: function () {
-        this.count += 1;
-        if (this.count > 10) {
-            this.distance = 1500;
-            this.count = 0;
-            this.restartCount += 1;
-            if (this.restartCount < 4) {
-                alert("Looks like the blue line is to small to see, let's zoom in");
+        willyWalk: function() {
+            this.count += 1;
+            if (this.count > 10) {
+                this.distance = 1500;
+                this.count = 0;
+                this.restartCount += 1;
+                if (this.restartCount < 4) {
+                    alert("Looks like the blue line is too small to see, let's zoom in");
+                } else {
+                    alert("At this point Willy is close enough to make it work, but theoretically, would Willy ever make it inside?");
+                    location.reload();
+                }
             }
-            else {
-                alert("At this point Willy is close enough to make it work, but theoretically, would Willy ever make it inside?")
-                location.reload();
+            this.distance = this.distance / 2;
+            this.newDis = this.distance + "px";
+            document.querySelector('.blue-line').style.width = this.newDis;
+            this.disCount = this.disCount / 2;
+            this.disDisplay = this.roundIfNecessary(this.disCount, 11);
+
+            document.querySelector('#distance-display').textContent = 
+                `Distance to Bathroom: ${this.disDisplay} meters`;
+
+            if (typeof TABIsec === 'function') {
+                TABIsec();
             }
+        },
+
+        roundIfNecessary: function(number, decimalPlaces) {
+            let numStr = number.toString();
+            let decimalPos = numStr.indexOf('.');
+            
+            if (decimalPos === -1 || numStr.length - decimalPos - 1 <= decimalPlaces) {
+                return number;
+            }
+            
+            return number.toFixed(decimalPlaces);
         }
-        this.distance = this.distance / 2;
-        this.newDis = this.distance + "px";
-        document.querySelector('.blue-line').style.width = this.newDis;
-        this.disCount = this.disCount / 2;
-        this.disDisplay = this.roundIfNecessary(this.disCount, 11); // roounds to 10 decimal string
-
-
-        document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
-
-        
-    },
-
-    roundIfNecessary: function (number, decimalPlaces) {
-        // Convert number to a string
-        let numStr = number.toString();
-        
-        // Find the position of the decimal point
-        let decimalPos = numStr.indexOf('.');
-        
-        // If there is no decimal point or the number has fewer decimal places than required, return the number as is
-        if (decimalPos === -1 || numStr.length - decimalPos - 1 <= decimalPlaces) {
-            return number;
+    };
+    // Initialize all buttons
+    document.addEventListener('DOMContentLoaded', function() {
+        // Willy Walk button
+        const walkButton = document.getElementById('WillyWalk');
+        if (walkButton) {
+            walkButton.addEventListener('click', function() {
+                page1.willyWalk();
+                if (typeof TABIsec === 'function') {
+                    TABIsec();
+                }
+            });
         }
         
-        // Otherwise, round the number to the specified decimal places
-        return number.toFixed(decimalPlaces);
-
-    }
-};
+        // Navigation buttons
+        const backButton = document.getElementById('backButton');
+        if (backButton) {
+            backButton.addEventListener('click', goBackPage);
+        }
+        
+        const nextButton = document.getElementById('nextButton');
+        if (nextButton) {
+            nextButton.addEventListener('click', goNextPage);
+        }
+    });
+    
+})();
 /*
 let page2 = { // 3 Ans
     // Answers
@@ -292,174 +398,164 @@ let page4 = { //2 Answers
     }
 };
 */
-let page5 = { // 4 Ans
-    // Answers
-    ans1: 4,
-    ans2: -1,
-    ans3: 1,
-    ans4: -4,
-    // Player answers
-    pA1: 0,
-    pA2: 0,
-    pA3: 0,
-    pA4: 0,
-    // Check to see if all are complete
-    check: 0,
+(function() {   // #5
+    const page5 = {
+        ans1: 4,
+        ans2: -1,
+        ans3: 1,
+        ans4: -4,
+        pA1: 0,
+        pA2: 0,
+        pA3: 0,
+        pA4: 0,
+        check: 0,
 
-
-
-    submit: function () {
-        this.check = 0;
-        this.pA1 = Number(document.getElementById("red").value);
-        this.pA2 = Number(document.getElementById("blue").value);
-        this.pA3 = Number(document.getElementById("green").value);
-        this.pA4 = Number(document.getElementById("purple").value);
-    
-        if (this.ans1 === this.pA1) {
-            document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-            this.check += 1;
-        }
-    
+        submit: function() {
+            this.check = 0;
+            this.pA1 = Number(document.getElementById("red").value);
+            this.pA2 = Number(document.getElementById("blue").value);
+            this.pA3 = Number(document.getElementById("green").value);
+            this.pA4 = Number(document.getElementById("purple").value);
         
-        if (this.ans2 === this.pA2) {
-            document.getElementById("check2").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-            this.check += 1;
-        }
-    
-        if (this.ans3 === this.pA3) {
-            document.getElementById("check3").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-            this.check += 1;
-        }
-
-        if (this.ans4 === this.pA4) {
-            document.getElementById("check4").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-            this.check += 1;
-        }
-
-        if (this.check === 4) {
-            document.getElementById("nextButton").style.display = 'block'; // Show the "Next" button
-        
-        }
-    },
-
-};
-/*
-let page7 = { // 1 Ans
-   //Answers
-   ans1: 4,
-   //Player Answers
-   pA1: 0,
-
-   check: 0,
-
-
-   submit: function () {
-       this.check = 0;
-       this.pA1 = Number(document.getElementById("q1").value);
-      
-
-       if (this.ans1 === this.pA1) {
-           document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-           this.check += 1;
-       }
-   
-
-       if (this.check === 1) {
-           document.getElementById("nextButton").style.display = 'block'; // Show the "Next" button
-       
-       }
-
-
-   }
-};
-*/
-let page8 = { // 3 ans
-    // Answers
-    ans1: 2,
-    ans2: 0,
-    ans3: -4,
-    
-    // Player answers
-    pA1: 0,
-    pA2: 0,
-    pA3: 0,
-
-    // Check to see if all are complete
-    check: 0,
-
-
-
-    submit: function () {
-        this.check = 0;
-        this.pA1 = Number(document.getElementById("q1").value);
-        this.pA2 = Number(document.getElementById("q2").value);
-        this.pA3 = Number(document.getElementById("q3").value);
-        
-    
-        if (this.ans1 === this.pA1) {
-            document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-            this.check += 1;
-        }
-    
-        
-        if (this.ans2 === this.pA2) {
-            document.getElementById("check2").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-            this.check += 1;
-        }
-    
-        if (this.ans3 === this.pA3) {
-            document.getElementById("check3").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-            this.check += 1;
-        }
-
-
-        if (this.check === 3) {
-            document.getElementById("nextButton").style.display = 'block'; // Show the "Next" button
-        
-        }
-    },
-
-};
-
-
-let page10 = { // 1 Ans, 2 T/F
-    //Answers
-    ans1: 44,
-    //Player Answers
-    pA1: 0,
- 
-    check: 0,
- 
- 
-    submit: function () {
-        this.check = 0;
-        this.pA1 = Number(document.getElementById("q1").value);
-       
- 
-        if (this.ans1 === this.pA1) {
-            document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-            this.check += 1;
-        }
-    
- 
-        if (this.check === 1) {
-            document.getElementById("hiddenSection").style.display = 'block';
-        }
- 
- 
-    },
-
-    TF: function (isTrue) {
-        if (isTrue) {
-            this.check += 1;
-            if (this.check === 2) {
+            if (this.ans1 === this.pA1) {
+                document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                this.check += 1;
+            }
+            
+            if (this.ans2 === this.pA2) {
                 document.getElementById("check2").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                this.check += 1;
             }
-            if (this.check === 3) {
+        
+            if (this.ans3 === this.pA3) {
                 document.getElementById("check3").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
-                document.getElementById("nextButton").style.display = 'block'; // Show the "Next" button
+                this.check += 1;
+            }
+
+            if (this.ans4 === this.pA4) {
+                document.getElementById("check4").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                this.check += 1;
+            }
+
+            if (this.check === 4) {
+                document.getElementById("nextButton").style.display = 'block';
             }
         }
+    };
 
-    }
- };
+    window.page5Submit = function() {
+        page5.submit();
+    };
+})();
+/*
+(function() {   
+    const page7 = {
+        ans1: 4,
+        pA1: 0,
+        check: 0,
+
+        submit: function() {
+            this.check = 0;
+            this.pA1 = Number(document.getElementById("q1").value);
+        
+            if (this.ans1 === this.pA1) {
+                document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                this.check += 1;
+            }
+        
+            if (this.check === 1) {
+                document.getElementById("nextButton").style.display = 'block';
+            }
+        }
+    };
+
+    window.page7Submit = function() {
+        page7.submit();
+    };
+})();
+*/
+(function() {       // #8
+    const page8 = {
+        ans1: 2,
+        ans2: 0,
+        ans3: -4,
+        pA1: 0,
+        pA2: 0,
+        pA3: 0,
+        check: 0,
+
+        submit: function() {
+            this.check = 0;
+            this.pA1 = Number(document.getElementById("q1").value);
+            this.pA2 = Number(document.getElementById("q2").value);
+            this.pA3 = Number(document.getElementById("q3").value);
+            
+            if (this.ans1 === this.pA1) {
+                document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                this.check += 1;
+            }
+            
+            if (this.ans2 === this.pA2) {
+                document.getElementById("check2").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                this.check += 1;
+            }
+        
+            if (this.ans3 === this.pA3) {
+                document.getElementById("check3").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                this.check += 1;
+            }
+
+            if (this.check === 3) {
+                document.getElementById("nextButton").style.display = 'block';
+            }
+        }
+    };
+
+    window.page8Submit = function() {
+        page8.submit();
+    };
+})();
+
+
+(function() {       // #10
+    const page10 = {
+        ans1: 44,
+        pA1: 0,
+        check: 0,
+
+        submit: function() {
+            this.check = 0;
+            this.pA1 = Number(document.getElementById("q1").value);
+        
+            if (this.ans1 === this.pA1) {
+                document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                this.check += 1;
+            }
+        
+            if (this.check === 1) {
+                document.getElementById("hiddenSection").style.display = 'block';
+            }
+        },
+
+        TF: function(isTrue) {
+            if (isTrue) {
+                this.check += 1;
+                if (this.check === 2) {
+                    document.getElementById("check2").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                }
+                if (this.check === 3) {
+                    document.getElementById("check3").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                    document.getElementById("nextButton").style.display = 'block';
+                }
+            }
+        }
+    };
+
+    window.page10Submit = function() {
+        page10.submit();
+    };
+    
+    window.page10TF = function(isTrue) {
+        page10.TF(isTrue);
+    };
+})();
