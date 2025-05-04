@@ -10,12 +10,8 @@ const repoName = 'Learn-Calc';
 const basePath = '/Learn-Calc/';
 
 function navigateToPage(pageNumber) {
-    const basePath = '/Learn-Calc/';
-    const paths = [
-        `${basePath}PageList/page${pageNumber}.html`
-    ];
-
-    window.location.href = paths[0];
+    const basePath = '/Learn-Calc/PageList/';
+    window.location.href = `${basePath}page${pageNumber}.html`;
 }
 
 
@@ -63,6 +59,7 @@ function goHome() {
     const basePath = '/Learn-Calc/';
     window.location.href = `${basePath}index.html`;
 }
+
 
 
 function goNextPage() {
