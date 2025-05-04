@@ -7,11 +7,11 @@ window.debugNav = {
 
 const isGitHubPages = window.location.host.includes('github.io');
 const repoName = 'Learn-Calc'; 
-const basePath = '/Learn-Calc/';
+const basePath = window.location.hostname === 'localhost' ? '/' : '/Learn-Calc/';
+const pagePath = 'PageList/';
 
 function navigateToPage(pageNumber) {
-    const basePath = '/Learn-Calc/PageList/';
-    window.location.href = `${basePath}page${pageNumber}.html`;
+    window.location.href = `${basePath}${pagePath}page${pageNumber}.html`;
 }
 
 
@@ -56,21 +56,20 @@ function start() {
 }
 
 function goHome() {
-    const basePath = '/Learn-Calc/';
     window.location.href = `${basePath}index.html`;
 }
 
 
 
-function goNextPage() {
+function next() {
     navigateToPage(getCurrentPageNumber() + 1);
 }
 
 
 
-function goBackPage() {
-    const currentPage = getCurrentPageNumber();
-    if (currentPage > 1) navigateToPage(currentPage - 1);
+function back() {
+    const current = getCurrentPageNumber();
+    if (current > 1) navigateToPage(current - 1);
     else goHome();
 }
 

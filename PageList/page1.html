@@ -4,7 +4,7 @@
 <head>
     <meta charset = "UTF-8" />
     <title>CalcQuest - Page 1</title>
-	<link rel="stylesheet" href="../calcPage.css">
+	<link rel="stylesheet" href="/Learn-Calc/calcPage.css">
 </head>
 
 <body>
@@ -30,9 +30,9 @@
     
     <h2 id="distance-display">Distance to Bathroom: 100 meters</h2>
     <div class="container">
-        <img class="willy"src="../Pics/pg1/pic1.png"> 
+        <img src="/Learn-Calc/Pics/pg1/pic1.png"> 
         <div class="blue-line"></div> 
-        <img class="willy"src="../Pics/pg1/pic2.png"> 
+        <img src="/Learn-Calc/Pics/pg1/pic2.png">
     </div>
     <br>
     <button type="button" id="WillyWalk">Take a Step</button>    <br><br><br>
@@ -40,14 +40,12 @@
 
 
 
-    <div class="nav-buttons">
-        <button data-home>Home</button>
-        <button data-back>Back</button>
-        <button data-next>Next</button>
-    </div>
+    <button id="backButton" style="color: red; position:fixed; top:10px; left:10px;" onclick="back()">Back</button>
+    <button id="nextButton" style="color: red; display:none; position:fixed; top:10px; right:10px;" onclick="next()">Next</button>
 
 
-    <script src="../calcPage.js"></script>
+
+    <script src="/Learn-Calc/calcPage.js"></script>
 
 
 
