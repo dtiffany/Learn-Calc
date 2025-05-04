@@ -9,35 +9,15 @@ const isGitHubPages = window.location.host.includes('github.io');
 const repoName = 'Learn-Calc'; 
 const basePath = '/Learn-Calc/';
 
-// Unified navigation function
-// Universal navigation function
 function navigateToPage(pageNumber) {
-    // Try multiple path patterns
+    const basePath = '/Learn-Calc/';
     const paths = [
-        `${basePath}PageList/page${pageNumber}.html`,
-        `${basePath}page${pageNumber}.html`,
-        `${basePath}../PageList/page${pageNumber}.html`
+        `${basePath}PageList/page${pageNumber}.html`
     ];
 
-    // Try each path sequentially
-    function tryPath(index) {
-        if (index >= paths.length) {
-            alert(`Page ${pageNumber} not found. Tried:\n${paths.join('\n')}`);
-            return;
-        }
-
-        window.location.href = paths[index];
-        
-        // Fallback check
-        setTimeout(() => {
-            if (!window.location.href.endsWith(`page${pageNumber}.html`)) {
-                tryPath(index + 1);
-            }
-        }, 100);
-    }
-
-    tryPath(0);
+    window.location.href = paths[0];
 }
+
 
 function initPageNavigation() {
     // Page navigation buttons (1-10)
@@ -80,28 +60,10 @@ function start() {
 }
 
 function goHome() {
-    const homePaths = [
-        `${basePath}index.html`,
-        `${basePath}PageList/index.html`
-    ];
-
-    function tryHomePath(index) {
-        if (index >= homePaths.length) {
-            window.location.href = '/';  // Final fallback
-            return;
-        }
-
-        window.location.href = homePaths[index];
-        
-        setTimeout(() => {
-            if (!window.location.href.endsWith('index.html')) {
-                tryHomePath(index + 1);
-            }
-        }, 100);
-    }
-
-    tryHomePath(0);
+    const basePath = '/Learn-Calc/';
+    window.location.href = `${basePath}index.html`;
 }
+
 
 function goNextPage() {
     navigateToPage(getCurrentPageNumber() + 1);
