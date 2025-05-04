@@ -7,16 +7,16 @@ window.debugNav = {
 
 const isGitHubPages = window.location.host.includes('github.io');
 const repoName = 'Learn-Calc'; 
-const basePath = isGitHubPages ? `/${repoName}/` : '/';
+const basePath = '/Learn-Calc/';
 
 // Unified navigation function
 // Universal navigation function
 function navigateToPage(pageNumber) {
     // Try multiple path patterns
     const paths = [
-        `PageList/page${pageNumber}.html`,  // GitHub Pages structure
-        `page${pageNumber}.html`,           // Flat structure fallback
-        `../PageList/page${pageNumber}.html` // If navigating from subfolder
+        `${basePath}PageList/page${pageNumber}.html`,
+        `${basePath}page${pageNumber}.html`,
+        `${basePath}../PageList/page${pageNumber}.html`
     ];
 
     // Try each path sequentially
@@ -81,9 +81,8 @@ function start() {
 
 function goHome() {
     const homePaths = [
-        'index.html',
-        '../index.html',
-        '/Learn-Calc/index.html'
+        `${basePath}index.html`,
+        `${basePath}PageList/index.html`
     ];
 
     function tryHomePath(index) {
