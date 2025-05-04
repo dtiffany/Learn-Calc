@@ -1,0 +1,113 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center; /* Centers inline elements (buttons, text) */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers horizontally */
+    min-height: 100vh;
+}
+
+.main-content{
+    margin-bottom: 30px;
+}
+
+img {
+    width: 400px;
+    height: 400px;
+    border: 2px solid black;
+    margin: 20px 20px;
+}
+
+img.willy {
+    width: 100px;
+    height: 200px;
+}
+
+div.blue-line {
+    height: 10px;
+    width: 1500px;
+    background-color: blue;
+
+}
+
+div.container {
+    display: flex;
+    align-items: center;
+    justify-content: right;
+    margin-top: 50px;
+
+}
+
+img.checkmark {
+    width: 25px;
+    height: 25px;
+    border: none;
+    margin: 1px;
+}
+
+input {
+    height: 30px;
+    width: 150px;
+    font-size: 20px;
+    text-align: center;
+}
+
+button {
+    height: auto;
+    width: auto;
+    color: blue;
+    font-size: 30px;
+    margin: 20px 20px;
+    border: 1px solid black
+}
+
+button.TF {
+    width: 100px;            /* Set the width of the buttons */
+    height: 40px;            /* Set the height of the buttons */
+    border: 2px solid black; /* Add a solid border */
+    margin: 10px 20px;       /* Add margins (10px top/bottom, 20px left/right) */
+    background-color: lightgray; /* Set a background color if needed */
+    text-align: center;  
+}
+
+.hamTitle {
+    height: 110px;
+    width: 300px;
+    color: black;
+    background-color: bisque;
+    font-size: 30px;
+}
+
+.hamPg {
+    height: 55px;
+    width: 55px;
+    color: green;
+    font-size: 20px;
+    text-align: center;
+}
+
+.hamSec {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Adds spacing between buttons */
+}
+
+.nav-buttons {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.nav-buttons button {
+    padding: 8px 16px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
