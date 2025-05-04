@@ -4,7 +4,7 @@
 <head>
     <meta charset = "UTF-8" />
     <title>CalcQuest - Page 10</title>
-	<link rel="stylesheet" href="../calcPage.css">
+	<link rel="stylesheet" href="/Learn-Calc/calcPage.css">
 </head>
 
 <body>
@@ -16,18 +16,18 @@
     
     <h2>Well what if I want to know the area under this curve?</h2>
     
-    <img src="../Pics/pg6/pic1.png">
+    <img src="/Learn-Calc/Pics/pg6/pic1.png">
     <h2>Our best bet is to make an estimation, using the different slopes we've found around the graph</h2>
     <h3><i>Since this is our original graph, we can use our previous estimation graph</i></h3>
     
-    <img src="../Pics/pg10/pic1.png">
+    <img src="/Learn-Calc/Pics/pg10/pic1.png">
     
     <h2>Then we can find the area of this graph</h2>
     <h3>One way of doing this is by breaking it up into shapes, finding the area of each shape and adding them up</h3>
-    <img src="../Pics/pg10/pic2.png"> <img src="../Pics/pg10/pic8.png"> 
+    <img src="/Learn-Calc/Pics/pg10/pic2.png"> <img src="/Learn-Calc/Pics/pg10/pic8.png"> 
     <br>
     <h2>Below you are given the area of each shape</h2>
-    <img src="../Pics/pg10/pic3.png">
+    <img src="/Learn-Calc/Pics/pg10/pic3.png">
     <h2>Add it all together and you get:</h2>
     <h2>24 + 8 + 8 + 2 + 1 + 1= <input id="q1"> <span id="check1"></span></h2>
     
@@ -36,8 +36,8 @@
     <div id="hiddenSection" style="display: none;">
         
         <h2>Pictured on the <i>LEFT</i> is the area of our original function, the <i>RIGHT</i> shows the original function over our estimate</h2>
-        <img id="hiddenPic" src="../Pics/pg10/pic4.png" style="margin: 0 20px;">
-        <img id="hiddenPic2" src="../Pics/pg10/pic5.png" style="margin: 0 30px;">
+        <img id="hiddenPic" src="/Learn-Calc/Pics/pg10/pic4.png" style="margin: 0 20px;">
+        <img id="hiddenPic2" src="/Learn-Calc/Pics/pg10/pic5.png" style="margin: 0 30px;">
         <h2>How close is our estimate to the actual area?</h2>
         
         <button type="button" id="TABI" onclick="TABIsec()">Think About It</button>
@@ -51,10 +51,10 @@
         <button id="overEst" style="margin: 2px;" onclick="page10.TF(true)">Overestimate</button><span id="check2"></span>
         <br><br>
         <h2>By that logic, if we found 19 slopes along this graph</h2>
-        <img src="../Pics/pg10/pic6.png">
+        <img src="/Learn-Calc/Pics/pg10/pic6.png">
         <h2>Then repeated the process to find the area</h2>
         <h3><i>And pretend the gaps are filled in</i></h3> 
-        <img src="../Pics/pg10/pic7.png">
+        <img src="/Learn-Calc/Pics/pg10/pic7.png">
         <h2>Would our next estimation be: </h2>
         <button id="moreAcc" style="margin: 2px;" onclick="page10.TF(true)">More Accurate</button><span id="check3"></span>
         <h3>Or:</h3>
@@ -69,6 +69,6 @@
     <button id="nextButton" style="color: red; display:none; position:fixed; top:10px; right:10px;" onclick="next()">Next</button>
 
 
-    <script src="../calcPage.js"></script>
+    <script src="/Learn-Calc/calcPage.js"></script>
 
 </body>
