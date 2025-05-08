@@ -30,21 +30,34 @@ img.willy {
 }
 
 
-div.container {
+.container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 20px;
-    max-width: 100%;
-    padding: 20px;
+    width: 100%;
+    padding: 0 20px;
+    box-sizing: border-box;
 }
 
-div.blue-line {
+.blue-line {
     height: 10px;
     background-color: blue;
     flex-grow: 1;
-    min-width: 50px;
-    max-width: 100%;
+    transition: width 0.5s ease;
+    margin: 0 20px;
+}
+
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .blue-line {
+        width: 80%;
+        height: 5px;
+        margin: 20px 0;
+    }
 }
 
 
