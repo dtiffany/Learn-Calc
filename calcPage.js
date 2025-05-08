@@ -218,6 +218,8 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
                 }
             }
             this.distance = this.distance / 2;
+            console.log("New distance: ", this.distance);  // Log new distance for debugging
+
             this.newDis = this.distance + "px";
             document.querySelector('.blue-line').style.width = this.newDis;
             this.disCount = this.disCount / 2;

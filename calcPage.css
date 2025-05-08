@@ -36,7 +36,7 @@ img {
     justify-content: flex-start;
     height: 200px;
     background-color: transparent;
-    transition: width 0.3s ease;
+    transition: width 0.5s ease;
     width: 1000px; /* this will be controlled dynamically */
 }
   
