@@ -21,30 +21,36 @@ img {
 }
 
 
-img.willy {
-    width: 100px;
-    height: 200px;
-    border: 2px solid black; /* keep this if you want the border on Willy */
-    margin: 20px 20px;
-    object-fit: contain;
-}
-
-
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;  /* anchor everything right */
     width: 100%;
-    padding: 0 20px;
-    box-sizing: border-box;
+    overflow-x: hidden;
+    gap: 10px;
 }
-
+  
+.blue-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 200px;
+    background-color: transparent;
+    transition: width 0.3s ease;
+    width: 1000px; /* this will be controlled dynamically */
+}
+  
 .blue-line {
     height: 10px;
     background-color: blue;
     flex-grow: 1;
-    transition: width 0.5s ease;
-    margin: 0 20px;
+    transition: width 0.3s ease;
+}
+  
+img.willy {
+    width: 100px;
+    height: 200px;
+    object-fit: contain;
 }
 
 

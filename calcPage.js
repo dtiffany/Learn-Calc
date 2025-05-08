@@ -197,7 +197,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 (function() {       // #1
     // Your page1 object - now scoped to this function
     const page1 = {
-        distance: 1500,
+        distance: Math.min(window.innerWidth * 0.8, 1000), // 80% of screen or max 1000px
         newDis: "",
         count: 0,
         disCount: 100,
@@ -244,8 +244,12 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
     };
     // Initialize all buttons
     document.addEventListener('DOMContentLoaded', function() {
+        
+        document.getElementById('blueWrap').style.width = page1.distance + "px";
+
         // Willy Walk button
         const walkButton = document.getElementById('WillyWalk');
+
         if (walkButton) {
             walkButton.addEventListener('click', function() {
                 page1.willyWalk();
