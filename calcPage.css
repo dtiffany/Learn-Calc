@@ -24,11 +24,12 @@ img {
 .container {
     display: flex;
     align-items: center;
-    justify-content: flex-end;  /* anchor everything right */
+    justify-content: flex-start;  /* Centering the blue line */
     width: 100%;
     overflow-x: hidden;
     gap: 10px;
 }
+
   
 .blue-wrapper {
     display: flex;
@@ -37,15 +38,18 @@ img {
     height: 200px;
     background-color: transparent;
     transition: width 0.5s ease;
-    width: 1000px; /* this will be controlled dynamically */
+    /* Remove the fixed width */
+    /* width: 1000px; */
 }
+
   
 .blue-line {
     height: 10px;
     background-color: blue;
     flex-grow: 1;
-    transition: width 0.3s ease;
+    transition: width 0.5s ease; /* Match transition time with .blue-wrapper */
 }
+
   
 img.willy {
     width: 100px;
