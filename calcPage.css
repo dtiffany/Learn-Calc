@@ -13,33 +13,40 @@ body {
     margin-bottom: 30px;
 }
 
-img:not(.willy) {
+img {
     width: 400px;
     height: 400px;
     border: 2px solid black;
     margin: 20px 20px;
 }
 
+
 img.willy {
     width: 100px;
     height: 200px;
+    border: 2px solid black; /* keep this if you want the border on Willy */
+    margin: 20px 20px;
     object-fit: contain;
 }
 
-div.blue-line {
-    height: 10px;
-    width: 1500px;
-    background-color: blue;
-
-}
 
 div.container {
     display: flex;
     align-items: center;
-    justify-content: right;
-    margin-top: 50px;
-
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 100%;
+    padding: 20px;
 }
+
+div.blue-line {
+    height: 10px;
+    background-color: blue;
+    flex-grow: 1;
+    min-width: 50px;
+    max-width: 100%;
+}
+
 
 img.checkmark {
     width: 25px;
