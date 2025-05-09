@@ -392,29 +392,37 @@ let page4 = { //2 Answers
             if (this.ans1 === this.pA1) {
                 document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
                 this.check += 1;
-            } else {
-                document.getElementById("nextButton").style.display = 'none'; // Hide it if answers are incorrect
+            }
+            else 
+            { // Displays X for wrong Answer
+                document.getElementById("check1").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
             }
             
             if (this.ans2 === this.pA2) {
                 document.getElementById("check2").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
                 this.check += 1;
-            } else {
-                document.getElementById("nextButton").style.display = 'none'; // Hide it if answers are incorrect
+            } 
+            else 
+            { // Displays X for wrong Answer
+                document.getElementById("check1").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
             }
         
             if (this.ans3 === this.pA3) {
                 document.getElementById("check3").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
                 this.check += 1;
-            } else {
-                document.getElementById("nextButton").style.display = 'none'; // Hide it if answers are incorrect
+            } 
+            else 
+            { // Displays X for wrong Answer
+                document.getElementById("check1").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
             }
 
             if (this.ans4 === this.pA4) {
                 document.getElementById("check4").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
                 this.check += 1;
-            } else {
-                document.getElementById("nextButton").style.display = 'none'; // Hide it if answers are incorrect
+            } 
+            else 
+            { // Displays X for wrong Answer
+                document.getElementById("check1").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
             }
 
             if (this.check === 4) {
