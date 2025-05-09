@@ -71,4 +71,48 @@
 
     <script src="/Learn-Calc/calcPage.js"></script>
 
+    <script>
+        const page10 = {
+            ans1: 44,
+            pA1: 0,
+            check: 0,
+
+            submit: function() {
+                this.check = 0;
+                this.pA1 = Number(document.getElementById("q1").value);
+
+                if (this.ans1 === this.pA1) {
+                    document.getElementById("check1").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                    this.check += 1;
+                }
+
+                if (this.check === 1) {
+                    document.getElementById("hiddenSection").style.display = 'block';
+                }
+            },
+
+            TF: function(isTrue) {
+                if (isTrue) {
+                    this.check += 1;
+                    if (this.check === 2) {
+                        document.getElementById("check2").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                    }
+                    if (this.check === 3) {
+                        document.getElementById("check3").innerHTML = '<img src="../Pics/check.png" alt="Correct" class="checkmark">';
+                        document.getElementById("nextButton").style.display = 'block';
+                    }
+                }
+            }
+        };
+
+        window.page10Submit = function() {
+            page10.submit();
+        };
+        
+        window.page10TF = function(isTrue) {
+            page10.TF(isTrue);
+        };
+    </script>
 </body>
+</html>
+    

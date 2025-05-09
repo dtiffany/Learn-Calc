@@ -505,7 +505,7 @@ let page4 = { //2 Answers
     };
 })();
 
-
+/*
 (function() {       // #10
     const page10 = {
         ans1: 44,
@@ -548,3 +548,4 @@ let page4 = { //2 Answers
         page10.TF(isTrue);
     };
 })();
+*/
