@@ -214,21 +214,21 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
                 }
             }
 
-            const oldDistance = this.distance;
+            //const oldDistance = this.distance;
             this.distance = this.distance / 2;
             console.log("New distance: ", this.distance);  // Log new distance for debugging
 
-            const blueWrap = document.getElementById('blueWrap');
-            blueWrap.style.width = this.distance + "px";
+            //const blueWrap = document.getElementById('blueWrap');
+           // blueWrap.style.width = this.distance + "px";
 
 
             this.newDis = this.distance + "px";
-            document.querySelector('.blue-line').style.width = this.newDis;
+            document.querySelector('.blueWrap').style.width = this.newDis;
 
             // move Willy
-            const delta = (oldDistance - this.distance);
-            const willyLeft = document.getElementById('willyLeft');
-            willyLeft.style.transform = 'translateX(${delta}px)';
+            //const delta = (oldDistance - this.distance);
+            //const willyLeft = document.getElementById('willyLeft');
+            //willyLeft.style.transform = 'translateX(${delta}px)';
 
 
             this.disCount = this.disCount / 2;
@@ -255,6 +255,8 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
     };
     // Initialize all buttons
     document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('blueWrap').style.width = page1.distance + "px";
+
         const blueWrap = document.getElementById('blueWrap');
         const willyLeft = document.getElementById('willyLeft');
     

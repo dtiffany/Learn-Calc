@@ -24,29 +24,25 @@ img {
 .container {
     display: flex;
     align-items: center;
-    justify-content: center;  /* Centering the blue line */
+    justify-content: center; /* ✅ center the whole block */
     width: 100%;
     gap: 10px;
 }
 
-  
 .blue-wrapper {
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    height: 200px;
     background-color: transparent;
     transition: width 0.5s ease;
-    width: auto; /* Let JS control width */
+    width: 1000px; /* Start at 1000, will shrink */
 }
 
-
-  
 .blue-line {
     height: 10px;
     background-color: blue;
     transition: width 0.5s ease;
-    width: 100%; /* Required: not flex-grow anymore */
+    width: 100%; /* keep this, since the wrapper shrinks */
 }
 
 
