@@ -404,7 +404,7 @@ let page4 = { //2 Answers
             } 
             else 
             { // Displays X for wrong Answer
-                document.getElementById("check1").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
+                document.getElementById("check2").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
             }
         
             if (this.ans3 === this.pA3) {
@@ -413,7 +413,7 @@ let page4 = { //2 Answers
             } 
             else 
             { // Displays X for wrong Answer
-                document.getElementById("check1").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
+                document.getElementById("check3").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
             }
 
             if (this.ans4 === this.pA4) {
@@ -422,7 +422,7 @@ let page4 = { //2 Answers
             } 
             else 
             { // Displays X for wrong Answer
-                document.getElementById("check1").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
+                document.getElementById("check4").innerHTML = '<img src="../Pics/X.png" alt="Wrong" class="checkmark">';
             }
 
             if (this.check === 4) {
