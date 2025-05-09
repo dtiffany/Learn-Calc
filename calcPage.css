@@ -36,18 +36,19 @@ img {
     justify-content: flex-start;
     height: 200px;
     background-color: transparent;
-    transition: all 0.3s ease;
-    /* Remove the fixed width */
-    /* width: 1000px; */
+    transition: width 0.5s ease;
+    width: auto; /* Let JS control width */
 }
+
 
   
 .blue-line {
     height: 10px;
     background-color: blue;
-    width: 400px;
-    transition: width 0.3s ease; /* Match transition time with .blue-wrapper */
+    transition: width 0.5s ease;
+    width: 100%; /* Required: not flex-grow anymore */
 }
+
 
   
 img.willy {
