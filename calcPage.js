@@ -59,13 +59,9 @@ function goHome() {
     window.location.href = `${basePath}index.html`;
 }
 
-
-
 function next() {
     navigateToPage(getCurrentPageNumber() + 1);
 }
-
-
 
 function back() {
     const current = getCurrentPageNumber();
@@ -217,11 +213,20 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
                     location.reload();
                 }
             }
+
+            const oldDistance = this.distance;
             this.distance = this.distance / 2;
             console.log("New distance: ", this.distance);  // Log new distance for debugging
 
             this.newDis = this.distance + "px";
             document.querySelector('.blue-line').style.width = this.newDis;
+
+            // move Willy
+            const delta = (oldDistance - this.distance);
+            const willyImg = document.getElementById('willyLeft');
+            willyImg.style.transform = 'translateX(${delta}px)';
+
+
             this.disCount = this.disCount / 2;
             this.disDisplay = this.roundIfNecessary(this.disCount, 11);
 

@@ -24,9 +24,8 @@ img {
 .container {
     display: flex;
     align-items: center;
-    justify-content: flex-start;  /* Centering the blue line */
+    justify-content: center;  /* Centering the blue line */
     width: 100%;
-    overflow-x: hidden;
     gap: 10px;
 }
 
@@ -37,7 +36,7 @@ img {
     justify-content: flex-start;
     height: 200px;
     background-color: transparent;
-    transition: width 0.5s ease;
+    transition: all 0.3s ease;
     /* Remove the fixed width */
     /* width: 1000px; */
 }
@@ -46,8 +45,8 @@ img {
 .blue-line {
     height: 10px;
     background-color: blue;
-    flex-grow: 1;
-    transition: width 0.5s ease; /* Match transition time with .blue-wrapper */
+    width: 400px;
+    transition: width 0.3s ease; /* Match transition time with .blue-wrapper */
 }
 
   
@@ -55,6 +54,7 @@ img.willy {
     width: 100px;
     height: 200px;
     object-fit: contain;
+    transition: transform 0.3s ease;
 }
 
 
