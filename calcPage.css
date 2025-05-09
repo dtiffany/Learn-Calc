@@ -123,3 +123,21 @@ button.TF {
     gap: 10px; /* Adds spacing between buttons */
 }
 
+#FTCbutton {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 15px;
+    font-size: 14px;
+    background-color: #007acc;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+#FTCbutton:hover {
+    background-color: #005fa3;;
+}

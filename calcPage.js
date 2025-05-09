@@ -59,6 +59,10 @@ function goHome() {
     window.location.href = `${basePath}index.html`;
 }
 
+function goToFTCPage() {
+    window.location.href = `${basePath}index.html`;
+}
+
 function next() {
     navigateToPage(getCurrentPageNumber() + 1);
 }
