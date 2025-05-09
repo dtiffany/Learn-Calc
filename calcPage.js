@@ -500,6 +500,7 @@ let page4 = { //2 Answers
     };
 
     window.page8Submit = function() {
+        console.log("Submit button clicked")
         page8.submit();
     };
 })();
