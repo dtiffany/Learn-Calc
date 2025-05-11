@@ -24,7 +24,7 @@ img {
 .container {
     display: flex;
     align-items: center;
-    justify-content: center; /* ✅ center the whole block */
+    justify-content: space-between; /* replaces center */
     width: 100%;
     gap: 10px;
 }
