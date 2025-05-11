@@ -24,24 +24,30 @@ img {
 .container {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Left-align */
+    justify-content: center; /* Left-align */
     width: 100%;
-    gap: 10px;
+    gap: 20px;
+}
+
+.line-and-willy {
+  position: relative;
+  display: flex;
+  align-items: center;
 }
 
 .blue-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: transparent;
-    transition: width 0.5s ease;
-    width: 1000px; /* Start at 1000, will shrink */
+  background-color: transparent;
+  transition: width 0.5s ease, transform 0.5s ease;
+  width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
 }
 
 .blue-line {
     height: 10px;
     background-color: blue;
-    transition: width 0.5s ease;
     width: 100%; /* keep this, since the wrapper shrinks */
 }
 
@@ -52,6 +58,8 @@ img.willy {
     height: 200px;
     object-fit: contain;
     transition: transform 0.3s ease;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 
