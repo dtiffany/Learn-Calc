@@ -226,17 +226,16 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             document.getElementById('blueWrap').style.width = this.newDis;
 
 
-            // move Willy
-            //const delta = (100 - this.disCount) * 4; // Adjust multiplier as needed
-            //document.getElementById('willyLeft').style.transform = `translateX(${delta}px)`;
-
+            // Move Willy with the shrinking line
+            const willyLeft = document.getElementById('willyLeft');
+            const offset = (1000 - this.distance); // Calculate Willy's new position relative to the shrinking line
+            willyLeft.style.transform = `translateX(${offset}px)`;  // Move Willy to follow the shrinking line
 
 
             this.disCount = this.disCount / 2;
             this.disDisplay = this.roundIfNecessary(this.disCount, 11);
 
-            document.querySelector('#distance-display').textContent = 
-                `Distance to Bathroom: ${this.disDisplay} meters`;
+            document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
 
             if (typeof TABIsec === 'function') {
                 TABIsec();

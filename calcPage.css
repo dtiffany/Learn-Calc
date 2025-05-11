@@ -24,7 +24,7 @@ img {
 .container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* replaces center */
+    justify-content: flex-start; /* Left-align */
     width: 100%;
     gap: 10px;
 }
