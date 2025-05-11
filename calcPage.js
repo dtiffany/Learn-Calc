@@ -223,7 +223,8 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             this.newDis = this.distance + "px";
-            document.querySelector('.blueWrap').style.width = this.newDis;
+            document.getElementById('blueWrap').style.width = this.newDis;
+
 
             // move Willy
             //const delta = (oldDistance - this.distance);
