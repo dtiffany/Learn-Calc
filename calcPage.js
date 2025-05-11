@@ -227,7 +227,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             // move Willy
-            const delta = (100 - this.disCount) * 2; // Adjust multiplier as needed
+            const delta = (100 - this.disCount) * 4; // Adjust multiplier as needed
             document.getElementById('willyLeft').style.transform = `translateX(${delta}px)`;
 
 
