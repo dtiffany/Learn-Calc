@@ -225,16 +225,16 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             this.newDis = this.distance + "px";
             document.getElementById('blueWrap').style.width = this.newDis;
             
-            const blueWrap = document.getElementById('blueWrap');
-            blueWrap.style.width = this.newDis;
+            //const blueWrap = document.getElementById('blueWrap');
+            //blueWrap.style.width = this.newDis;
 
             // Move the wrapper to the right so it shrinks from the left
-            const offset = 1000 - this.distance;
-            blueWrap.style.transform = `translateX(${offset}px)`;
+            //const offset = 1000 - this.distance;
+            //blueWrap.style.transform = `translateX(${offset}px)`;
 
             // Willy stays pinned to the left of the wrapper
-            const willyLeft = document.getElementById('willyLeft');
-            willyLeft.style.transform = `translateX(${offset}px)`;
+            //const willyLeft = document.getElementById('willyLeft');
+            //willyLeft.style.transform = `translateX(${offset}px)`;
 
 
             this.disCount = this.disCount / 2;
