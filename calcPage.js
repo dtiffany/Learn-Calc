@@ -227,8 +227,9 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             // move Willy
-            const delta = (100 - this.disCount) * 4; // Adjust multiplier as needed
-            document.getElementById('willyLeft').style.transform = `translateX(${delta}px)`;
+            const totalWidth = Math.min(window.innerWidth * 0.8, 1000); // same as initial line width
+            const offset = totalWidth - this.distance;
+            document.getElementById('willyLeft').style.transform = `translateX(${offset}px)`;
 
 
 
