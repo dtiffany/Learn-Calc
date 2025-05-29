@@ -228,7 +228,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
             // Move Willy to left edge of the blue line
             const willy = document.getElementById('willyLeft');
-            willy.style.left = (this.distance - willy.offsetWidth) + "px"; 
+            willy.style.left = (1000 - this.distance - 200) + "px"; 
             // Subtract 100 because bathroom is on the right and takes 100px
 
 
