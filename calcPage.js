@@ -223,16 +223,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             this.newDis = this.distance + "px";
-            const blueLine = document.querySelector('#blueWrap .blue-line');
-            blueLine.style.width = this.newDis;
-
-            // Move Willy to left edge of the blue line
-            const willy = document.getElementById('willyLeft');
-            willy.style.left = (1000 - this.distance - 100) + "px"; 
-            // Subtract 100 because bathroom is on the right and takes 100px
-
-
-
+            document.querySelector('.blue-line').style.width = this.newDis;
 
             //const blueWrap = document.getElementById('blueWrap');
             //blueWrap.style.width = this.newDis;
@@ -259,11 +250,11 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
         roundIfNecessary: function(number, decimalPlaces) {
             let numStr = number.toString();
             let decimalPos = numStr.indexOf('.');
-            
+
             if (decimalPos === -1 || numStr.length - decimalPos - 1 <= decimalPlaces) {
                 return number;
             }
-            
+
             return number.toFixed(decimalPlaces);
         }
     };
@@ -273,29 +264,29 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
         const blueWrap = document.getElementById('blueWrap');
         const willyLeft = document.getElementById('willyLeft');
-    
+
         // Set initial width
         blueWrap.style.width = page1.distance + "px";
-    
+
         const walkButton = document.getElementById('WillyWalk');
         if (walkButton) {
             walkButton.addEventListener('click', function() {
                 page1.willyWalk();
             });
         }
-        
+
         // Navigation buttons
         const backButton = document.getElementById('backButton');
         if (backButton) {
             backButton.addEventListener('click', goBackPage);
         }
-        
+
         const nextButton = document.getElementById('nextButton');
         if (nextButton) {
             nextButton.addEventListener('click', goNextPage);
         }
     });
-    
+
 })();
 /*
 let page2 = { // 3 Ans
