@@ -75,7 +75,6 @@ img {
 }
 
 #willyLeft {
-  /* we can keep this relative so left changes move him horizontally */
   transition: left 0.5s ease;
 }
 
