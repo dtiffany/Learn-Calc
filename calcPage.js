@@ -214,7 +214,6 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
                 }
             }
 
-            
             //const oldDistance = this.distance;
             this.distance = this.distance / 2;
             console.log("New distance: ", this.distance);  // Log new distance for debugging
@@ -224,20 +223,33 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             this.newDis = this.distance + "px";
+            const blueLine = document.querySelector('#blueWrap .blue-line');
+            blueLine.style.width = this.newDis;
 
-            document.querySelector('.blueWrap').style.width = this.newDis;
+            // Move Willy to left edge of the blue line
+            const willy = document.getElementById('willyLeft');
+            willy.style.left = (1000 - this.distance - 100) + "px"; 
+            // Subtract 100 because bathroom is on the right and takes 100px
 
 
-            //const delta = (oldDistance - this.distance);
+
+
+            //const blueWrap = document.getElementById('blueWrap');
+            //blueWrap.style.width = this.newDis;
+
+            // Move the wrapper to the right so it shrinks from the left
+            //const offset = 1000 - this.distance;
+            //blueWrap.style.transform = `translateX(${offset}px)`;
+
+            // Willy stays pinned to the left of the wrapper
             //const willyLeft = document.getElementById('willyLeft');
-            //willyLeft.style.transform = 'translateX(${delta}px)';
+            //willyLeft.style.transform = `translateX(${offset}px)`;
 
 
             this.disCount = this.disCount / 2;
             this.disDisplay = this.roundIfNecessary(this.disCount, 11);
 
-            document.querySelector('#distance-display').textContent = 
-                `Distance to Bathroom: ${this.disDisplay} meters`;
+            document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
 
             if (typeof TABIsec === 'function') {
                 TABIsec();
