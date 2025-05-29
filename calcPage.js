@@ -223,7 +223,15 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             this.newDis = this.distance + "px";
-            document.querySelector('.blue-line').style.width = this.newDis;
+            document.getElementById('blueWrap').style.width = this.newDis;
+
+            // Move Willy to left edge of the blue line
+            const willy = document.getElementById('willyLeft');
+            willy.style.left = (1000 - this.distance - 100) + "px"; 
+            // Subtract 100 because bathroom is on the right and takes 100px
+
+
+
             
             //const blueWrap = document.getElementById('blueWrap');
             //blueWrap.style.width = this.newDis;
