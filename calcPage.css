@@ -22,21 +22,17 @@ img {
 
 
 .container {
-  position: relative;
-  width: 1000px;
-  height: 220px;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-start;
-  gap: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Left-align */
+    width: 100%;
+    gap: 20px;
 }
 
 .line-and-willy {
   position: relative;
   display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 5px;
+  align-items: center;
 }
 
 .blue-wrapper {
@@ -49,42 +45,14 @@ img {
   overflow: hidden;
 }
 
-#willyLeft {
-  height: 200px;
-  width: auto;
-  margin: 0;
-  transition: left 0.5s ease;
-  position: relative; /* normal flow */
-  left: 0;
-}
-
-#blueWrap {
-  background-color: transparent;
-  width: 1000px;
-  height: 10px;
-  overflow: hidden;
-  position: relative;
-}
-
 .blue-line {
-  height: 10px;
-  background-color: blue;
-  width: 100%;
-  transition: width 0.5s ease;
-  transform-origin: right;
+    height: 10px;
+    background-color: blue;
+    width: 100%; /* keep this, since the wrapper shrinks */
 }
 
-#willyLeft {
-  transition: left 0.5s ease;
-}
 
-#bathroom {
-  height: 200px;
-  width: auto;
-  margin-left: 20px;
-}
 
-  
 img.willy {
     width: 100px;
     height: 200px;
@@ -135,7 +103,7 @@ button.TF {
     height: 40px;            /* Set the height of the buttons */
     border: 2px solid black; /* Add a solid border */
     margin: 10px 20px;       /* Add margins (10px top/bottom, 20px left/right) */
-    background-color: lightgray; /* Set a background color if needed */
+    background-color: lightgray; /* Set a background color */
     text-align: center;  
 }
 
@@ -161,4 +129,3 @@ button.TF {
     align-items: center;
     gap: 10px; /* Adds spacing between buttons */
 }
-
