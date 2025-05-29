@@ -24,9 +24,9 @@ img {
 .container {
   position: relative;
   width: 1000px;
-  height: 200px;
+  height: 220px;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: flex-start;
   gap: 0;
 }
@@ -34,7 +34,9 @@ img {
 .line-and-willy {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .blue-wrapper {
@@ -47,37 +49,40 @@ img {
   overflow: hidden;
 }
 
-.blue-line {
-    height: 10px;
-    background-color: blue;
-    transition: width 0.5 ease;
-    width: 100%;
-    transform-origin: left;
-}
-
-
 #willyLeft {
-  position: absolute;
-  bottom: 0;
   height: 200px;
+  width: auto;
+  margin: 0;
   transition: left 0.5s ease;
-  left: 0; /* initial position */
+  position: relative; /* normal flow */
+  left: 0;
 }
 
 #blueWrap {
-  position: absolute;
-  bottom: 0;
+  background-color: transparent;
+  width: 1000px;
+  height: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+.blue-line {
   height: 10px;
   background-color: blue;
-  right: 100px; /* bathroom image is ~100px wide */
+  width: 100%;
   transition: width 0.5s ease;
+  transform-origin: right;
+}
+
+#willyLeft {
+  /* we can keep this relative so left changes move him horizontally */
+  transition: left 0.5s ease;
 }
 
 #bathroom {
-  position: absolute;
-  right: 0;
-  bottom: 0;
   height: 200px;
+  width: auto;
+  margin-left: 20px;
 }
 
   
