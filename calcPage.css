@@ -48,7 +48,9 @@ img {
 .blue-line {
     height: 10px;
     background-color: blue;
-    width: 100%; /* keep this, since the wrapper shrinks */
+    transition: width 0.5 ease;
+    width: 100%;
+    transform-origin: right;
 }
 
 
