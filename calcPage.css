@@ -49,22 +49,6 @@ img {
   overflow: hidden;
 }
 
-#willyLeft {
-  height: 200px;
-  width: auto;
-  margin: 0;
-  transition: left 0.5s ease;
-  position: relative; /* normal flow */
-  left: 0;
-}
-
-#blueWrap {
-  background-color: transparent;
-  width: 1000px;
-  height: 10px;
-  overflow: hidden;
-  position: relative;
-}
 
 .blue-line {
   height: 10px;
@@ -72,16 +56,6 @@ img {
   width: 100%;
   transition: width 0.5s ease;
   transform-origin: right;
-}
-
-#willyLeft {
-  transition: left 0.5s ease;
-}
-
-#bathroom {
-  height: 200px;
-  width: auto;
-  margin-left: 20px;
 }
 
   
