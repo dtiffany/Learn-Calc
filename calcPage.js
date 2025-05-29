@@ -191,7 +191,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 }
 
 (function() {       // #1
-    // Your page1 object - now scoped to this function
+    // page1 object scoped to this function
     const page1 = {
         distance: Math.min(window.innerWidth * 0.8, 1000), // 80% of screen or max 1000px
         newDis: "",
@@ -223,7 +223,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             this.newDis = this.distance + "px";
-            document.getElementById('blueWrap').style.width = this.newDis;
+            document.querySelector('.blue-line').style.width = this.newDis;
             
             //const blueWrap = document.getElementById('blueWrap');
             //blueWrap.style.width = this.newDis;
