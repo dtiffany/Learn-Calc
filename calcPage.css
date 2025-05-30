@@ -136,7 +136,7 @@ button.TF {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: auto;
     max-width: 1000px;
     margin: 0 auto 40px auto;
     padding: 10px;
