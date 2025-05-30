@@ -249,8 +249,8 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             //willyLeft.style.transform = `translateX(${offset}px)`;
 
 
-            //this.disCount = this.disCount / 2;
-            this.disDisplay = this.roundIfNecessary(shrinkAmount, 11);
+            this.disCount = this.disCount / 2;
+            this.disDisplay = this.roundIfNecessary(this.disCount, 11);
 
             document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
 
