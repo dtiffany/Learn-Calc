@@ -214,7 +214,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
                 }
             }
 
-            //const oldDistance = this.distance;
+            const prevDistance = this.distance;
             this.distance = this.distance / 2;
             console.log("New distance: ", this.distance);  // Log new distance for debugging
 
@@ -230,10 +230,8 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
             // Move Willy left by the amount the line shrinks
             const willy = document.getElementById('willyLeft');
-            const totalWidth = Math.min(window.innerWidth * 0.8, 1000); // initial full width
-            const offset = totalWidth - this.distance;
-            willy.style.transform = `translateX(-${offset}px)`;
-
+            const shrinkAmount = (prevDistance - this.distance) / 2;
+            willy.style.transform = `translateX(-${shrinkAmount}px)`;
 
 
 
