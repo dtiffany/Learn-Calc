@@ -20,17 +20,25 @@ img {
     margin: 20px 20px;
 }
 
+.scene {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 200px; /* Adjust based on your images' height */
+}
+
 
 .container {
     display: flex;
     align-items: center;
-    justify-content: center; /* Left-align */
+    justify-content: flex-end; /* Left-align */
     width: 100%;
-    gap: 20px;
+    padding-right: 20px;
+    
 }
 
 .line-and-willy {
-  position: relative;
+
   display: flex;
   align-items: center;
 }
@@ -48,17 +56,22 @@ img {
 .blue-line {
     height: 10px;
     background-color: blue;
-    width: 100%; /* keep this, since the wrapper shrinks */
+    transition: width 0.5s ease;
 }
 
 
 
-img.willy {
+.willy {
     width: 100px;
     height: 200px;
     object-fit: contain;
-    transition: transform 0.3s ease;
-    margin: 0;
+    transition: transform 0.5s ease;
+    margin-right: 10px; /* Space between Willy and blue line */
+}
+
+.bathroom {
+    margin-left: 10px; /* Space between blue line and bathroom */
+
 }
 
 
