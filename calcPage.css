@@ -23,16 +23,15 @@ img {
 
 .container {
     display: flex;
-    align-items: center;
-    justify-content: center; /* Left-align */
+    justify-content: flex-end; 
     width: 100%;
-    gap: 20px;
+    padding-right: 20px;
 }
 
-.line-and-willy {
-  position: relative;
-  display: flex;
-  align-items: center;
+.items-group {
+    display: flex;
+    align-items: center; /* Vertically centers items */
+    gap: 10px; /* Space between items */
 }
 
 .blue-wrapper {
@@ -53,12 +52,9 @@ img {
 
 
 
-img.willy {
-    width: 100px;
-    height: 200px;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-    margin: 0;
+.willy {
+    width: 100px !important; /* Force your original size */
+    height: 200px !important;
 }
 
 
@@ -72,6 +68,11 @@ img.willy {
         height: 5px;
         margin: 20px 0;
     }
+}
+
+.bathroom {
+    width: 400px !important;
+    height: 400px !important;
 }
 
 
