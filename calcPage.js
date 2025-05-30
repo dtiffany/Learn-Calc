@@ -223,7 +223,19 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             this.newDis = this.distance + "px";
-            document.querySelector('.blue-line').style.width = this.newDis;
+
+            // Update blue line width
+            const blueLine = document.querySelector('.blue-line');
+            blueLine.style.width = this.newDis;
+
+            // Move Willy left by the amount the line shrinks
+            const willy = document.getElementById('willyLeft');
+            const totalWidth = Math.min(window.innerWidth * 0.8, 1000); // initial full width
+            const offset = totalWidth - this.distance;
+            willy.style.transform = `translateX(-${offset}px)`;
+
+
+
 
             //const blueWrap = document.getElementById('blueWrap');
             //blueWrap.style.width = this.newDis;
