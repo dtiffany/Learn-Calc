@@ -197,6 +197,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
         newDis: "",
         count: 0,
         disCount: 100,
+        disDisplay,
         
         restartCount: 0,
 
@@ -250,9 +251,9 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             
-            this.disCount = this.roundIfNecessary(this.disCount, 11);
+            this.disDisplay = this.roundIfNecessary(this.disCount, 11);
 
-            document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disCount} meters`;
+            document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
             if (typeof TABIsec === 'function') {
                 TABIsec();
             }
