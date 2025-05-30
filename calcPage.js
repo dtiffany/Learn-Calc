@@ -203,7 +203,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
         willyWalk: function() {
             this.count += 1;
             if (this.count > 10) {
-                this.distance = 1500;
+                this.distance = 1000;
                 this.count = 0;
                 this.restartCount += 1;
                 if (this.restartCount < 4) {
