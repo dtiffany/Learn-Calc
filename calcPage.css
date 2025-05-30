@@ -168,13 +168,6 @@ button.TF {
   width: 100px;
   height: 200px;
   object-fit: contain;
-  margin-right: 0;
-}
-
-#blueLine {
-  height: 10px;
-  background-color: blue;
-  width: 1000px;
-  transition: transform 0.5s ease, width 0.5s ease;
-  transform-origin: left;
+  margin: 0;
+  transition: none;
 }
