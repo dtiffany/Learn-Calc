@@ -216,7 +216,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             }
 
             
-            this.distance = this.distance / 2;
+            //this.distance = this.distance / 2;
             console.log("New distance: ", this.distance);  // Log new distance for debugging
 
 
@@ -250,7 +250,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             //willyLeft.style.transform = `translateX(${offset}px)`;
 
 
-            
+            this.distance = this.distance / 2;
             this.disDisplay = this.roundIfNecessary(this.disCount, 11);
 
             document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
