@@ -41,14 +41,16 @@ img {
   width: 1000px;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: flex-start;
   overflow: hidden;
 }
 
 .blue-line {
     height: 10px;
     background-color: blue;
-    width: 100%; /* keep this, since the wrapper shrinks */
+    width: 100%; 
+    transition: width 0.5s ease;
+    transform-origin: left;
 }
 
 
@@ -162,12 +164,7 @@ button.TF {
     background-color: darkred;
 }
 
-
 #willyLeft {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
   width: 100px;
   height: 200px;
   object-fit: contain;
