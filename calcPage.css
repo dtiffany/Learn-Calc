@@ -36,7 +36,6 @@ img {
 }
 
 .blue-wrapper {
-    border: 2px dashed red; /* Debuggin */
     background-color: transparent;
     transition: width 0.5s ease;
     width: 1000px;
