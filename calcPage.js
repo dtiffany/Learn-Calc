@@ -199,7 +199,6 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
         disCount: 100,
         disDisplay: 100,
         restartCount: 0,
-        totalOffest: 0,
 
         willyWalk: function() {
             this.count += 1;
@@ -216,17 +215,15 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             }
 
             //const oldDistance = this.distance;
-            const distanceBefore = this.distance;
             this.distance = this.distance / 2;
-            const distanceMoved = distanceBefore - this.distance;
-            this.totalOffset += distanceMoved;
             console.log("New distance: ", this.distance);  // Log new distance for debugging
 
             //const blueWrap = document.getElementById('blueWrap');
            // blueWrap.style.width = this.distance + "px";
 
 
-            document.querySelector('.blue-line').style.width = this.distance + "px";
+            this.newDis = this.distance + "px";
+            document.querySelector('.blue-line').style.width = this.newDis;
 
             //const blueWrap = document.getElementById('blueWrap');
             //blueWrap.style.width = this.newDis;
@@ -239,10 +236,6 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             //const willyLeft = document.getElementById('willyLeft');
             //willyLeft.style.transform = `translateX(${offset}px)`;
 
-
-            // Move Willy to the right by the distance moved
-            const willyLeft = document.getElementById('willyLeft');
-            willyLeft.style.transform = `translateX(${this.totalOffset}px)`;
 
             this.disCount = this.disCount / 2;
             this.disDisplay = this.roundIfNecessary(this.disCount, 11);
