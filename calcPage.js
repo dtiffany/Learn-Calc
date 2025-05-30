@@ -10,6 +10,12 @@ const repoName = 'Learn-Calc';
 const basePath = window.location.hostname === 'localhost' ? '/' : '/Learn-Calc/';
 const pagePath = 'PageList/';
 
+// Page1 const's
+const maxDistance = Math.min(window.innerWidth * 0.8, 1000);
+const maxDisCount = 100;
+const metersToPixels = maxDistance / maxDisCount;
+
+
 function navigateToPage(pageNumber) {
     window.location.href = `${basePath}${pagePath}page${pageNumber}.html`;
 }
@@ -193,10 +199,10 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 (function() {       // #1
     // page1 object scoped to this function
     const page1 = {
-        distance: Math.min(window.innerWidth * 0.8, 1000), // 80% of screen or max 1000px
+        distance: maxDistance, // 80% of screen or max 1000px
         newDis: "",
         count: 0,
-        disCount: 100,
+        disCount: maxDisCount,
         disDisplay: "",
         
         restartCount: 0,
@@ -216,11 +222,9 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             }
 
             
-            this.distance = this.distance / 2;
-            console.log("New distance: ", this.distance);  // Log new distance for debugging
-
 
             this.disCount = this.disCount / 2;
+            this.distance = this.disCount * metersToPixels;
             //const blueWrap = document.getElementById('blueWrap');
            // blueWrap.style.width = this.distance + "px";
 
@@ -228,13 +232,12 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             this.newDis = this.distance + "px";
 
             // Update blue line width
-            const blueLine = document.querySelector('.blue-line');
-            blueLine.style.width = this.newDis;
+            document.querySelector('.blue-line').style.width = this.newDis;
+
 
             // Move Willy left by the amount the line shrinks
-            const willy = document.getElementById('willyLeft');
-            const shrinkAmount = this.distance;
-            willy.style.transform = `translateX(${shrinkAmount}px)`;
+            document.getElementById('willyLeft').style.transform = `translateX(${this.distance}px)`;
+
 
 
 
@@ -250,7 +253,6 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             //willyLeft.style.transform = `translateX(${offset}px)`;
 
 
-            this.distance = this.distance / 2;
             this.disDisplay = this.roundIfNecessary(this.disCount, 11);
 
             document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
