@@ -219,7 +219,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             console.log("New distance: ", this.distance);  // Log new distance for debugging
 
 
-            this.disCount = this.distance;
+            this.disCount - this.distance;
             //const blueWrap = document.getElementById('blueWrap');
            // blueWrap.style.width = this.distance + "px";
 
@@ -232,7 +232,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
             // Move Willy left by the amount the line shrinks
             const willy = document.getElementById('willyLeft');
-            const shrinkAmount = this.distance / 2;
+            const shrinkAmount = (prevDistance - this.distance) / 2;
             willy.style.transform = `translateX(${shrinkAmount}px)`;
 
 
@@ -253,7 +253,6 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             this.disDisplay = this.roundIfNecessary(this.disCount, 11);
 
             document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
-
             if (typeof TABIsec === 'function') {
                 TABIsec();
             }
