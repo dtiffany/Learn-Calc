@@ -222,6 +222,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             }
 
             
+            const currentDistance = this.disCount * metersToPixels;
 
             this.disCount = this.disCount / 2;
             this.distance = this.disCount * metersToPixels;
@@ -236,7 +237,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             // Move Willy left by the amount the line shrinks
-            document.getElementById('willyLeft').style.transform = `translateX(${this.distance}px)`;
+            document.getElementById('willyLeft').style.transform = `translateX(${currentDistance}px)`;
 
 
 

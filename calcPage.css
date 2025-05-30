@@ -132,17 +132,6 @@ button.TF {
     gap: 10px; /* Adds spacing between buttons */
 }
 
-.top-bar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: auto;
-    max-width: 1000px;
-    margin: 0 auto 40px auto;
-    padding: 10px;
-    gap: 20px;
-    flex-wrap: wrap;
-}
 
 
 .title-section {
