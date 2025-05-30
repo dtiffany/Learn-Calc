@@ -236,7 +236,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             // Move Willy left by the amount the line shrinks
-            //document.getElementById('willyLeft').style.transform = `translateX(${this.distance}px)`;
+            document.getElementById('willyLeft').style.transform = `translateX(${this.distance}px)`;
 
 
 
