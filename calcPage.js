@@ -219,7 +219,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             console.log("New distance: ", this.distance);  // Log new distance for debugging
 
 
-            this.disCount - this.distance;
+            this.disCount -= (this.disCount / 2);
             //const blueWrap = document.getElementById('blueWrap');
            // blueWrap.style.width = this.distance + "px";
 
