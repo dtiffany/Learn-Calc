@@ -43,6 +43,7 @@ img {
   align-items: center;
   justify-content: flex-start;
   overflow: hidden;
+  position: relative;
 }
 
 .blue-line {
@@ -165,9 +166,11 @@ button.TF {
 }
 
 #willyLeft {
-  width: 100px;
-  height: 200px;
-  object-fit: contain;
-  margin: 0;
-  transition: none;
+    width: 100px;
+    height: 200px;
+    object-fit: contain;
+    margin: 0;
+    transition: none;
+    position: absolute;
+
 }
