@@ -214,7 +214,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
                 }
             }
 
-            const prevDistance = this.distance;
+            
             this.distance = this.distance / 2;
             console.log("New distance: ", this.distance);  // Log new distance for debugging
 
@@ -225,14 +225,12 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
             this.newDis = this.distance + "px";
 
             // Update blue line width
-            const blueLine = document.querySelector('.blue-line');
+            const blueLine = document.querySelector('blueline');
             blueLine.style.width = this.newDis;
 
-            // Move Willy left by the amount the line shrinks
-            const willy = document.getElementById('willyLeft');
-            const shrinkAmount = (prevDistance - this.distance) / 2;
-            willy.style.transform = `translateX(${shrinkAmount}px)`;
-
+            // Move the line closer to the bathroom (i.e., shift rightward)
+            const offset = 1000 - this.distance; // assumes initial 1000px
+            blueLine.style.transform = `translateX(${offset}px)`;
 
 
             //const blueWrap = document.getElementById('blueWrap');
