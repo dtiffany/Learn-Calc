@@ -250,7 +250,7 @@ function threeSub(Ans1, Ans2, Ans3, isDone) { // 3 Q Submit (Ans1, Ans2, Ans3, T
 
 
             //this.disCount = this.disCount / 2;
-            this.disDisplay = this.roundIfNecessary(this.distance, 11);
+            this.disDisplay = this.roundIfNecessary(shrinkAmount, 11);
 
             document.querySelector('#distance-display').textContent = `Distance to Bathroom: ${this.disDisplay} meters`;
 
